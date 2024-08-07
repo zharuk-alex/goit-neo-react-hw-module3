@@ -1,0 +1,17 @@
+@import "@/styles/formStyles.module.css";
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+  border: 1px solid;
+  width: 400px;
+  max-width: 100%;
+}
+
+.errorMsg {
+  font-size: 0.75rem;
+  color: red;
+}

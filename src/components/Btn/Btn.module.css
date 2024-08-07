@@ -1,0 +1,33 @@
+.btn {
+  display: inline-flex;
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 0.4rem;
+  align-items: center;
+  justify-content: center;
+  height: fit-content;
+}
+
+.default {
+  composes: btn;
+  background-color: rgb(206, 206, 206);
+}
+
+.sm {
+  composes: btn;
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+}
+
+.md {
+  composes: btn;
+  font-size: 1.25rem;
+  padding: 0.75rem 1.5rem;
+}
+
+.lg {
+  composes: btn;
+  font-size: 1.5rem;
+  padding: 1rem 2rem;
+}

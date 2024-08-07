@@ -1,0 +1,20 @@
+.formInput {
+  font-size: 1.125rem;
+  border-radius: 8px;
+  border: 1px solid rgba(0, 0, 0, 0.25);
+  padding: 0.75rem 1rem;
+  width: 100%;
+}
+
+.fromLabel {
+  font-size: 0.925rem;
+  font-weight: 500;
+  color: rgba(0, 0, 0, 0.8);
+}
+
+.fromControl {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.5rem;
+}

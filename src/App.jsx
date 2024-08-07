@@ -19,7 +19,7 @@ function App() {
       }
       throw new Error();
     } catch (error) {
-      return initialContacts;
+      return initialContacts ?? [];
     }
   });
 
@@ -35,21 +35,7 @@ function App() {
 
   const removeContact = (contactId) => {
     const newList = contacts.filter(({ id }) => id !== contactId);
-    setContacts(newList);
-  };
-
-  const filterContacts = (evt) => {
-    const { value } = evt.target ?? "";
-    setSearchValue(value);
-
-    if (value === "") {
-      setContacts(initialContacts);
-      return;
-    }
-
-    const newList = contacts.filter(
-      ({ name }) => name.toLowerCase()?.indexOf(value?.toLowerCase()) > -1
-    );
+    console.log("removeContact", newList);
     setContacts(newList);
   };
 
@@ -57,13 +43,23 @@ function App() {
     window.localStorage.setItem("saved-contacts", JSON.stringify(contacts));
   }, [contacts]);
 
+  const filteredContacts = contacts.filter(({ name }) =>
+    name.toLowerCase().includes(searchValue.toLowerCase())
+  );
+
   return (
     <main className={styles.main}>
       <section className={styles.section}>
         <h1>Phonebook</h1>
         <ContactForm onSubmit={addContact} />
-        <SearchBox value={searchValue} onChange={filterContacts} />
-        <ContactList contacts={contacts} removeContact={removeContact} />
+        <SearchBox
+          value={searchValue}
+          onChange={(evt) => setSearchValue(evt.target.value)}
+        />
+        <ContactList
+          contacts={filteredContacts}
+          removeContact={removeContact}
+        />
       </section>
     </main>
   );

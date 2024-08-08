@@ -6,6 +6,11 @@
   width: 100%;
 }
 
+.formInputInvalid {
+  composes: formInput;
+  border: 1px solid red;
+}
+
 .fromLabel {
   font-size: 0.925rem;
   font-weight: 500;
@@ -17,4 +22,9 @@
   flex-direction: column;
   align-items: flex-start;
   gap: 0.5rem;
+}
+
+.errorMsg {
+  font-size: 0.75rem;
+  color: red;
 }

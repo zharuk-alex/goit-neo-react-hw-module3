@@ -7,6 +7,13 @@
   align-items: center;
   justify-content: center;
   height: fit-content;
+  cursor: pointer;
+  box-shadow: 0 1px 5px #0003, 0 2px 2px #00000024, 0 3px 1px -2px #0000001f;
+}
+
+.btn:active {
+  box-shadow: inset 0px 0px 0px;
+  outline: none;
 }
 
 .default {
@@ -16,13 +23,13 @@
 
 .sm {
   composes: btn;
-  font-size: 1rem;
+  font-size: .85rem;
   padding: 0.5rem 1rem;
 }
 
 .md {
   composes: btn;
-  font-size: 1.25rem;
+  font-size: 1rem;
   padding: 0.75rem 1.5rem;
 }
 

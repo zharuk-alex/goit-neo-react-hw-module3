@@ -52,10 +52,7 @@ function App() {
       <section className={styles.section}>
         <h1>Phonebook</h1>
         <ContactForm onSubmit={addContact} />
-        <SearchBox
-          value={searchValue}
-          onChange={(evt) => setSearchValue(evt.target.value)}
-        />
+        <SearchBox value={searchValue} onChange={setSearchValue} />
         <ContactList
           contacts={filteredContacts}
           removeContact={removeContact}

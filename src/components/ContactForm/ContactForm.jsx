@@ -72,14 +72,23 @@ const ContactForm = ({ onSubmit }) => {
       onSubmit={handleSubmit}
       validationSchema={validationSchema}
     >
-      <Form className={styles.form}>
-        {formSchema.map((field) => (
-          <Field key={field.id} component={InputField} {...field} />
-        ))}
-        <Btn type="submit" size="md">
-          Add contact
-        </Btn>
-      </Form>
+      {({ errors, touched }) => {
+        return (
+          <Form className={styles.form}>
+            {formSchema.map((field) => (
+              <Field
+                key={field.id}
+                component={InputField}
+                error={touched?.[field.name] && errors?.[field.name]}
+                {...field}
+              />
+            ))}
+            <Btn type="submit" size="md">
+              Add contact
+            </Btn>
+          </Form>
+        );
+      }}
     </Formik>
   );
 };

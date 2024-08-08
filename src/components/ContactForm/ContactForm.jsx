@@ -76,30 +76,6 @@ const ContactForm = ({ onSubmit }) => {
         {formSchema.map((field) => (
           <Field key={field.id} component={InputField} {...field} />
         ))}
-        {/* {formSchema.map(({ id, name, label, type, ...field }) => (
-            <div className={styles.fromControl} key={name}>
-              <label className={styles.fromLabel} htmlFor={id || name}>
-                {label}
-              </label>
-              <Field
-                id={id}
-                type={type || "text"}
-                name={name}
-                className={
-                  errors[name] && touched[name]
-                    ? styles.formInputInvalid
-                    : styles.formInput
-                }
-                {...field}
-              />
-              <ErrorMessage
-                className={styles.errorMsg}
-                name={name}
-                component="span"
-              />
-            </div>
-          ))} */}
-
         <Btn type="submit" size="md">
           Add contact
         </Btn>

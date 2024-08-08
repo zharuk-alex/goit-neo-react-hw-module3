@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { fakeNewId } from "./helpers";
 import ContactForm from "components/ContactForm/ContactForm";
 import SearchBox from "components/SearchBox/SearchBox";
 import ContactList from "components/ContactList/ContactList";
@@ -24,19 +25,16 @@ function App() {
   });
 
   const addContact = (contact) => {
-    const newID = `id-${contacts.length + 1}`;
     const newList = [...contacts];
     newList.push({
       ...contact,
-      id: newID,
+      id: fakeNewId(contacts),
     });
     setContacts(newList);
   };
 
   const removeContact = (contactId) => {
-    const newList = contacts.filter(({ id }) => id !== contactId);
-    console.log("removeContact", newList);
-    setContacts(newList);
+    setContacts(() => contacts.filter(({ id }) => id !== contactId));
   };
 
   useEffect(() => {
